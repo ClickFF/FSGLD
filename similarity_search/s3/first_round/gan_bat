@@ -1,0 +1,10 @@
+#!/bin/csh
+#set nline=`wc -l gan.bin |awk '{printf("%s", $1)}'`
+
+@ id=1
+
+while ($id < 190)
+	head -n $id gan.bin |tail -n 1 > input.bin
+	./tanimoto_ss_mcs -r template.in -i input.bin -m mcsii.bin -o output/s.$id -c 0.7
+	@ id=$id + 1
+end

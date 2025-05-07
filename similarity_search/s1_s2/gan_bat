@@ -1,0 +1,8 @@
+#!/bin/csh
+@ id=1
+
+while ($id < 10001)
+	head -n $id gan.bin |tail -n 1 > input.bin
+	./tanimoto_ss -r template.bin -i input.bin -o output/s.$id -c 0.7	
+	@ id=$id + 1
+end
