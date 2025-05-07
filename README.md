@@ -24,17 +24,17 @@ The training sets for three scenarios are located in DCGAN_s1/data, CDCGAN_s2/da
 
 ## Model training and molecular generation
 To train dcGAN/CDCGAN, generate and evaluate drug-like molucules/CB2 compounds/CB2 compound series, you can run the following command in all three folders:
-$ python train.py
-$ python generate.py
+`python train.py`
+`python generate.py`
 The evaluation metrics for the generated 10,000 samples will be printed after molecular generation, including uniqueness, diversity, novelty, average similarity and maximal similarity. 
 
 ## Similarity search
 In our work, we calculated tanimoto similarity between our generated fingerprints (FPs) and compounds in ChEMBL/ZINC library. In similarity_search folder, we provide csh and ELF code for you to convert MACCS FPs to FP2 FPs and conducted similarity search. tanimoto_ss is used for simple similarity search, while tanimoto_ss_mcs is used for similarity search fixed with MCS features. We provide MCS information for all mcs i, mcs ii and mcs iii, which are located in similarity_search/mcs. For the searched ChEMBL/ZINC compounds using generated samples in MACCS format, you can first use openbabel to convert searched compounds (sdf format) to FP2 in hex format, then used our provided hex2bin2 to convert hex format to binary format.
 Take similarity search for molecules with MCS ii features as an example (similarity_search/s3)
 1. Similarity search in similarity_search/s3/first_round
-$ python gen_bat
+`python gen_bat`
 3. Analyze the searched molecules in output/ and selected top ones. Retrive ChEMBL/ZINC sdf files, Use openbabel to convert sdf to FP2 FPs.  
 4. Convert MACCS to FP2:
-$ hex2bin2 -i maccs.bin -o fp2.bin
+`hex2bin2 -i maccs.bin -o fp2.bin`
 Similarity search for the second round.
-$ python gen_bat
+`python gen_bat`
