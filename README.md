@@ -38,9 +38,9 @@ Take similarity search for molecules with MCS ii features as an example (similar
 ```bash
 $ ./gen_bat
 ```
-3. Analyze the searched molecules in output/ and selected top ones. Retrive ChEMBL/ZINC sdf files, Use openbabel to convert sdf to FP2 FPs.  
-4. Convert MACCS to FP2:
+2. Analyze the searched molecules in output/ and selected top ones. Retrive ChEMBL/ZINC sdf files, Use openbabel to convert sdf to FP2 FPs.  
+3. Convert MACCS to FP2:
 ```bash
 $ ./hex2bin2 -i maccs.bin -o fp2.bin
 ```
-5. Similarity search (`./gen_bat`) for the second round.
+4. Similarity search (`./gen_bat`) for the second round.
