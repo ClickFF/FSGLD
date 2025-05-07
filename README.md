@@ -21,9 +21,11 @@ Optional: You may need to install openbabel (https://openbabel.org/docs/Installa
 ```
 
 ## Datasets
-The training sets for three scenarios are located in DCGAN_s1/data, CDCGAN_s2/data, and CDCGAN_s3/data. For similarity search, for the size limitation, we only provide a template.bin file for demo. It has been located in similarity_search/s1_s2 and similarity_search/s3
+The training set for the discrimiator is located in discriminator/maccs.json. We used 10-fold cross validation to validate the discriminator model for the determination of optimal architecture. The training sets for the dcGAN models in three scenarios are located in DCGAN_s1/data, CDCGAN_s2/data, and CDCGAN_s3/data. For similarity search, considering the size limitation, we only provide a template.bin file for demo. It has been located in similarity_search/s1_s2 and similarity_search/s3.
 
 ## Model training and molecular generation
+To train the discriminator, we provide our source code for each of the discriminator architecture for users to reproduce the results (include the generation of ROC curves). You can easily run `.ipynb` files to reproduce the results.
+
 To train dcGAN/CDCGAN, generate and evaluate drug-like molucules/CB2 compounds/CB2 compound series, you can run the following command in all three folders:
 ```python
 $ python train.py
