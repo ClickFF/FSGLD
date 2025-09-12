@@ -41,7 +41,7 @@ $ python generate.py
 ```
 
 **Note:**  
-  We also provide pre-trained generators, so users can skip training and directly reproduce the generation step. The pre-trained weights are located at: DCGAN_s1/bestmodel/saved_best_model.h5, CDCGAN_s2/bestmodel/saved_best_model.h5, CDCGAN_s3/bestmodel/saved_best_model.h5.
+  We also provide pre-trained generators, so users can skip training and directly reproduce the generation step. The pre-trained weights are located at: `DCGAN_s1/bestmodel/saved_best_model.h5`, `CDCGAN_s2/bestmodel/saved_best_model.h5`, `CDCGAN_s3/bestmodel/saved_best_model.h5`.
   
   The evaluation metrics for the generated 10,000 samples will be printed after molecular generation, including uniqueness, diversity, novelty, average similarity and maximal similarity. 
 
@@ -60,13 +60,12 @@ $ ./hex2bin2 -i maccs.bin -o fp2.bin
 4. Similarity search (`./gen_bat`) for the second round.
 
 ## Example notebook
-For convenience, we also provide a Jupyter notebook `example_inference.ipynb` (located in `DCGAN_s1/`),  
-which demonstrates a full workflow for Scenario I from model training to molecular generation.  
+  For convenience, we provide Jupyter notebooks `example_inference.ipynb` (located in DCGAN_s1/, CDCGAN_s2/, CDCGAN_s3/) in each scenario folder that demonstrate the full workflow from model training to molecular generation:  
 
-Users can directly run this notebook to:  
-- train the discriminator and generator (or skip training by using the provided pre-trained weights)
-- generate compound fingerprints
-- compute evaluation metrics (uniqueness, diversity, novelty, similarity),  
+  Users can directly run these notebooks to:  
+- train the discriminator and generator, or skip training by loading the provided pre-trained weights
+- generate molecular fingerprints 
+- compute evaluation metrics (uniqueness, diversity, novelty, similarity)
 - save the generated samples to `outputs/generated_samples.csv`.  
 
-This notebook is intended as a quick start for users to train the model and generate molecular fingerprints.
+  These notebooks serve as a quick start and benchmarking examples to facilitate reproducibility.
