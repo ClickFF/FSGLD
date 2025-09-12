@@ -33,7 +33,7 @@ $ python generate.py
 ```
 
 **Note:**  
-  We also provide pre-trained generators, so users can skip training and directly reproduce the generation step. The pre-trained weights are located at: DCGAN_s1/bestmodel/saved_best_model.h5, CDCGAN_s2/bestmodel/saved_best_model.h5, CDCGAN_s3/model/saved_best_model.h5.
+  We also provide pre-trained generators, so users can skip training and directly reproduce the generation step. The pre-trained weights are located at: DCGAN_s1/bestmodel/saved_best_model.h5, CDCGAN_s2/bestmodel/saved_best_model.h5, CDCGAN_s3/bestmodel/saved_best_model.h5.
   
   The evaluation metrics for the generated 10,000 samples will be printed after molecular generation, including uniqueness, diversity, novelty, average similarity and maximal similarity. 
 
