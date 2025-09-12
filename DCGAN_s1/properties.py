@@ -2,7 +2,6 @@ import numpy as np
 from sklearn.metrics import pairwise_distances
 
 def calc_metrics(generated, real):
-    """计算所有评估指标"""
     gen_round = np.round(generated)
     real_round = np.round(real)
     
