@@ -21,7 +21,15 @@ Optional: You may need to install openbabel (https://openbabel.org/docs/Installa
 ```
 
 ## Datasets
-  The training set for the discrimiator is located in discriminator/maccs.json. We used 10-fold cross validation to validate the discriminator model for the determination of optimal architecture. The training sets for the dcGAN models in three scenarios are located in DCGAN_s1/data, CDCGAN_s2/data, and CDCGAN_s3/data. For similarity search, due to the size limitation, we only provide a template.bin file for demo. It has been located in similarity_search/s1_s2 and similarity_search/s3.
+  The training set for the discriminator is located in `discriminator/maccs.json`. We used 10-fold cross validation to validate the discriminator model for the determination of the optimal architecture.  
+  The training sets for the dcGAN/cdcGAN models in the three scenarios are located in:  
+- `DCGAN_s1/data` (Scenario I: generic drug-like compounds)  
+- `CDCGAN_s2/data` (Scenario II: CB2-specific ligands)  
+- `CDCGAN_s3/data` (Scenario III: CB2 compound series)  
+
+  Each dataset is provided in structured CSV format with explicit fields (compound ID and MACCS fingerprints). For the discriminator, the training set is provided in JSON format.  All compound records were curated from **ChEMBL** and **ZINC** database, and subsequently cleaned and reformatted into the CSV/JSON files provided here.
+
+  For similarity search, due to size limitations, we only provide a `template.bin` file for demonstration, located in `similarity_search/s1_s2` and `similarity_search/s3`.
 
 ## Model training and molecular generation
   To train the discriminator, we provide our source code for each of the discriminator architecture for users to reproduce the results (include the generation of ROC curves). You can easily run `.ipynb` files to reproduce the results.
