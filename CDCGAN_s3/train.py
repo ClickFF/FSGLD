@@ -13,7 +13,7 @@ class ConditionalGANTrainer:
         MCS = MCS.set_index(MCS.columns[0])
         MCS_index = []
         for i in MCS.columns:
-            if MCS.loc['structure3', i] == 1:
+            if MCS.loc['structurei', i] == 1: # change 'structurei' to your specific row name if needed
                 MCS_index.append(i)
 
         global umask, mask
@@ -102,7 +102,7 @@ if __name__ == "__main__":
     config = {
         'active_path': 'data/cb2_active.csv',
         'inactive_path': 'data/cb2_inactive.csv',
-        'mask_path': 'data/cb2maccsii.csv',
+        'mask_path': 'data/cb2maccsi.csv',
         'latent_dim': 100,
         'fingerprint_dim': 168,
         'batch_size': 32,

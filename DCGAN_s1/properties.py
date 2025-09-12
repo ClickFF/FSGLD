@@ -6,17 +6,17 @@ def calc_metrics(generated, real):
     gen_round = np.round(generated)
     real_round = np.round(real)
     
-    # 唯一性
+    # uniqueness 
     unique = len(set(tuple(row) for row in gen_round))
     
-    # 新颖性
+    # novelty
     real_set = set(tuple(row) for row in real_round)
     novel = sum(1 for row in gen_round if tuple(row) not in real_set)
     
-    # 多样性
+    # diversity
     jaccard_dist = pairwise_distances(gen_round, metric='jaccard')
     
-    # 相似性
+    # similarity
     jaccard_sim = 1 - pairwise_distances(gen_round, real_round, metric='jaccard')
     
     return {

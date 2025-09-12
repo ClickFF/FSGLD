@@ -7,18 +7,16 @@ from properties import calc_metrics
 from data_loader import FingerprintData
 import os
 
-# 确保输出目录存在
 os.makedirs('outputs', exist_ok=True)
 
-# 加载模型
+# load the saved model 
 generator = build_generator(100)
 generator.load_weights('./bestmodel/saved_best_model.h5')
 
-# 生成样本
+# generate samples
 noise = tf.random.normal([10000, 100])
 generated = generator(noise).numpy().reshape(-1, 168)
 
-# 加载真实数据 - 使用完整路径
 data_path = 'data/combine' 
 try:
     real_data = FingerprintData(data_path, 'pos').x.reshape(-1, 168)
@@ -29,10 +27,10 @@ except FileNotFoundError:
     print("2. The path is correct")
     exit(1)
 
-# 计算指标
+# evaluation 
 metrics = calc_metrics(generated, real_data)
 
-# 保存结果
+# save the results
 pd.DataFrame(np.round(generated)).to_csv('outputs/generated_samples.csv', index=False)
 print("Evaluation Results:")
 for k, v in metrics.items():

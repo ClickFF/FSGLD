@@ -7,14 +7,13 @@ from properties import calc_metrics
 from data_loader import CB2DataLoader
 import os
 
-# 确保输出目录存在
 os.makedirs('outputs', exist_ok=True)
 
-# 加载模型
+# load saved model 
 generator = build_generator(100, 2)
 generator.load_weights('./bestmodel/saved_best_model.h5')
 
-# 生成样本
+# generate samples
 num_samples = 10000
 latent_dim = 100
 noise = tf.random.normal([num_samples, latent_dim])
@@ -36,10 +35,10 @@ except FileNotFoundError:
     print("2. The path is correct")
     exit(1)
 
-# 计算指标
+# evaluation
 metrics = calc_metrics(generated, real_data)
 
-# 保存结果
+# save the results
 pd.DataFrame(np.round(generated)).to_csv('outputs/generated_samples.csv', index=False)
 print("Evaluation Results:")
 for k, v in metrics.items():

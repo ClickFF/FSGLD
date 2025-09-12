@@ -10,15 +10,13 @@ class CB2DataLoader:
         
     def load_data(self):
         cb2_active = pd.read_csv(self.active_path, header=None, sep='\t')
-        active_data = np.array([[[int(j)] for j in cb2_active.loc[i,1]] for i in cb2_active.index])  # 保持 int
+        active_data = np.array([[[int(j)] for j in cb2_active.loc[i,1]] for i in cb2_active.index])  
         active_labels = np.ones(len(active_data)) 
 
-    # 读取非活性分子（同上）
         cb2_inactive = pd.read_csv(self.inactive_path, header=None, sep='\t')
         inactive_data = np.array([[[int(j)] for j in cb2_inactive.loc[i,1]] for i in cb2_inactive.index])
         inactive_labels = np.zeros(len(inactive_data))
 
-    # 合并数据
         self.x = np.concatenate((active_data, inactive_data), axis=0)
         self.y = np.concatenate((active_labels, inactive_labels)).reshape(-1, 1)
         self._shuffle()
